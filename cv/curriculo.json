@@ -1,0 +1,71 @@
+{
+    "nome_completo": "Dieter Heiss",
+    "titulo_profissional": "Desenvolvedor Web Full-Stack",
+    "resumo_profissional": "Desenvolvedor web apaixonado por tecnologia e soluções inovadoras, com foco em criar aplicações web inteligentes e responsivas.",
+    "contato": {
+        "email": "seu.email@exemplo.com",
+        "linkedin": "https://www.linkedin.com/in/seuusuario",
+        "github": "https://github.com/seususuario",
+        "telefone": "+55 (XX) XXXXX-XXXX"
+    },
+    "educacao": [
+        {
+            "instituicao": "Nome da Universidade",
+            "curso": "Graduação em Ciência da Computação",
+            "periodo": "Ano de Início - Ano de Conclusão",
+            "detalhes": "Principais disciplinas, projetos ou realizações"
+        }
+    ],
+    "experiencia_profissional": [
+        {
+            "empresa": "Nome da Empresa",
+            "cargo": "Cargo Ocupado",
+            "periodo": "Mês/Ano de Início - Mês/Ano de Saída (ou 'Atual')",
+            "responsabilidades": [
+                "Responsabilidade 1",
+                "Responsabilidade 2",
+                "Responsabilidade 3"
+            ],
+            "tecnologias_utilizadas": ["Tecnologia 1", "Tecnologia 2", "Tecnologia 3"]
+        }
+    ],
+    "habilidades_tecnicas": {
+        "linguagens_programacao": ["JavaScript", "Python", "HTML", "CSS"],
+        "frameworks_bibliotecas": ["React", "Node.js", "Bootstrap", "Django"],
+        "ferramentas_desenvolvimento": ["Git", "Docker", "VS Code", "Figma"],
+        "banco_de_dados": ["MySQL", "PostgreSQL", "MongoDB"],
+        "outras_habilidades": ["Metodologias Ágeis", "Design Responsivo", "Integração de APIs"]
+    },
+    "projetos_destacados": [
+        {
+            "nome": "Nome do Projeto",
+            "descricao": "Descrição detalhada do projeto",
+            "tecnologias": ["Tecnologias utilizadas"],
+            "link_repositorio": "Link do GitHub",
+            "link_demonstracao": "Link de demonstração (se aplicável)"
+        }
+    ],
+    "certificacoes": [
+        {
+            "nome": "Nome da Certificação",
+            "instituicao": "Instituição Emissora",
+            "ano": "Ano de Obtenção"
+        }
+    ],
+    "idiomas": [
+        {
+            "idioma": "Português",
+            "nivel": "Nativo"
+        },
+        {
+            "idioma": "Inglês",
+            "nivel": "Avançado"
+        }
+    ],
+    "interesses_profissionais": [
+        "Desenvolvimento Web",
+        "Inteligência Artificial",
+        "Desenvolvimento de Software",
+        "Inovação Tecnológica"
+    ]
+}

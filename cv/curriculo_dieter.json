@@ -1,0 +1,136 @@
+{
+    "nome_completo": "Dieter Heiss",
+    "titulo_profissional": "Especialista em Suporte Técnico e Desenvolvedor Web",
+    "resumo_profissional": "Profissional com sólida experiência em Suporte Técnico, Logística e Desenvolvimento Web, especializado em HTML, CSS, WordPress e integração de sistemas. Apaixonado por criar soluções inovadoras e melhorar processos com tecnologias modernas.",
+    "contato": {
+        "email": "weboss@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/dieter-heiss-523707130/",
+        "github": "https://github.com/Weboss-br",
+        "telefone": "+55 47 99915-1995",
+        "whatsapp": "(47) 99915-1995"
+    },
+    "educacao": [
+        {
+            "instituicao": "UNIASSELVI – Centro Universitário Leonardo Da Vinci",
+            "curso": "Superior Completo em Comunicação Social com Habilitação em Publicidade e Propaganda",
+            "ano_conclusao": 2005
+        },
+        {
+            "instituicao": "Univali - Balneário Camboriú",
+            "curso": "Pós-Graduação em Fotografia",
+            "ano_conclusao": 2009
+        }
+    ],
+    "experiencia_profissional": [
+        {
+            "empresa": "Blutrade Imp.",
+            "cargo": "Analista de Logística",
+            "periodo": "Agosto/2023 – Atual",
+            "responsabilidades": [
+                "Análise e otimização do sistema de gestão de estoque, garantindo maior eficiência operacional.",
+                "Organização física e analítica dos produtos, incluindo planejamento estratégico.",
+                "Implementação de novas funcionalidades e melhores práticas no setor logístico."
+            ],
+            "tecnologias_utilizadas": [
+                "Excel",
+                "SAP B1",
+                "Salesforce"
+            ]
+        },
+        {
+            "empresa": "Blutrade Imp.",
+            "cargo": "Suporte TI",
+            "periodo": "Setembro/2023 – Agosto/2024",
+            "responsabilidades": [
+                "Gerenciamento da infraestrutura de TI, incluindo manutenção de computadores e softwares.",
+                "Configuração e suporte a sistemas como SAP B1 e Salesforce.",
+                "Atualizações em páginas web, configuração de DNS e criação de formulários no WordPress."
+            ]
+        },
+        {
+            "empresa": "Maiberg Consultoria e Tecnologia LTDA",
+            "cargo": "Sócio (Desenvolvimento e Suporte Técnico IOT)",
+            "periodo": "Abril/2020 – Novembro/2022",
+            "responsabilidades": [
+                "Desenvolvimento no sistema Wegnology para monitoramento de máquinas.",
+                "Uso de JavaScript e MongoDB em plataforma Losant IOT.",
+                "Suporte técnico e instalação do sistema em postos de combustível."
+            ]
+        }
+    ],
+    "habilidades_tecnicas": {
+        "linguagens_programacao": [
+            "JavaScript",
+            "Python",
+            "HTML",
+            "CSS"
+        ],
+        "frameworks_bibliotecas": [
+            "Bootstrap",
+            "Django",
+            "FastAPI"
+        ],
+        "ferramentas_desenvolvimento": [
+            "Git",
+            "Docker",
+            "VS Code"
+        ],
+        "banco_de_dados": [
+            "PostgreSQL",
+            "MongoDB"
+        ],
+        "outros": [
+            "Metodologias Ágeis",
+            "Design Responsivo",
+            "Integração de APIs"
+        ]
+    },
+    "projetos_destacados": [
+        {
+            "nome": "Salariômetro",
+            "descricao": "Calculadora financeira inteligente para simplificar cálculos salariais e de impostos, focada na transparência financeira para os usuários.",
+            "tecnologias": [
+                "HTML",
+                "CSS",
+                "JavaScript"
+            ],
+            "status": "Concluído"
+        },
+        {
+            "nome": "SceneSync",
+            "descricao": "Aplicação para organização e sincronização de cenas criativas, ideal para roteiristas e profissionais audiovisuais.",
+            "tecnologias": [
+                "HTML",
+                "CSS",
+                "JavaScript"
+            ],
+            "status": "Em desenvolvimento (10% concluído)"
+        }
+    ],
+    "certificacoes": [
+        {
+            "nome": "Desenvolvedor Python +Devs FullStack (480 horas)",
+            "instituicao": "BLUSOFT - ACATE",
+            "ano": 2022
+        }
+    ],
+    "idiomas": [
+        {
+            "idioma": "Português",
+            "nivel": "Nativo"
+        },
+        {
+            "idioma": "Inglês",
+            "nivel": "Fluente"
+        }
+    ],
+    "interesses_profissionais": [
+        "Desenvolvimento Web",
+        "Inteligência Artificial",
+        "Gestão de Projetos",
+        "Inovação Tecnológica"
+    ],
+    "informacoes_pessoais": {
+        "descricao": "Pai de três meninas, casado, com experiência internacional após morar na Inglaterra por 1 ano e 6 meses. Ex-escoteiro por 10 anos, desenvolvendo habilidades de liderança e trabalho em equipe."
+    }
+}

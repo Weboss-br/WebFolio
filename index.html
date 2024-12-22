@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W.</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                W.
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">.Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projetos.html">.Projetos Pessoais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">.Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cv/curriculo.html">.Currículo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog">.Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">.Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <button id="theme-toggle" class="btn" title="Alternar Tema">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-md-6">
+                    <h1 class="display-4 fw-bold">Bem-vindo ao meu Portfólio</h1>
+                    <p class="lead">Desenvolvedor Web Criativo & Inovador</p>
+                    <a href="projetos.html" class="btn btn-primary">Ver Projetos</a>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="./images/heiss.jpg" alt="Minha Foto" class="profile-image img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contato" class="section-padding">
+        <div class="container">
+            <h2 class="text-center mb-5">Contato</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Nome">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Mensagem"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <img src="images/web_dark.png" alt="Logo" width="100" class="mb-3">
+            <p>&copy; 2024 WeBoss.com.br. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Theme Toggle Script -->
+    <script src="js/theme.js"></script>
+</body>
+</html>

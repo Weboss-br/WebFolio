@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo - W.</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                W.
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">.Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../projetos.html">.Projetos Pessoais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">.Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="curriculo.html">.Currículo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog">.Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">.Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <button id="theme-toggle" class="btn" title="Alternar Tema">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Curriculo Section -->
+    <section id="curriculo" class="py-5">
+        <div class="container">
+            <!-- Informações Estáticas do Currículo -->
+            <div id="curriculo-info" class="text-center mb-5">
+                <h2>Dieter Heiss – Currículo Interativo</h2>
+          </div>
+
+            <!-- Seção de Chat com IA -->
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h5>Entrevista Virtual</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="chat-messages" class="mb-3" style="height: 300px; overflow-y: auto; border: 1px solid #ddd; padding: 10px;">
+                                <div class="message text-start mb-2">
+                                    <strong>Olá!</strong> Sou o assistente virtual do Dieter. Estou aqui para responder suas perguntas sobre sua experiência, habilidades e projetos. Pergunte o que quiser e conheça melhor sua trajetória!
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" id="chat-input" class="form-control" placeholder="Vamos conversar?">
+                                <button id="send-chat" class="btn btn-primary">Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- Botão de Informações -->
+<div class="text-center mt-4">
+    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#informacoesModal">
+        Informações Importantes
+    </button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="informacoesModal">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header border-bottom border-secondary">
+                <h5 class="modal-title text-white">Informações Importantes</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    
+                    <div class="mb-4">
+                        <h5 class="text-warning">Sobre o projeto</h5>
+                        <ul class="list-unstyled">
+                            <li>✓ Este é um projeto experimental criado para explorar a tecnologia de IA de maneira prática. Embora seja apresentado de forma descontraída, os dados exibidos aqui são reais e refletem minha trajetória e interesses profissionais.</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="text-warning">Conquistas</h5>
+                        <ul class="list-unstyled">
+                            <li>🏆 A experiência adquirida com este projeto serve como base para desenvolver soluções reais, mostrando o potencial da tecnologia na resolução de problemas e na criação de projetos inovadores.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h5 class="text-warning">Privacidade</h5>
+                        <ul class="list-unstyled">
+                            <li>🔒 Para aprendizado e melhorias contínuas, todos os inputs e respostas do agente são registrados. Isso me ajuda a identificar oportunidades de aperfeiçoamento e a entregar uma experiência cada vez melhor.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="text-warning">Aproveite</h5>
+                        <ul class="list-unstyled">
+                            <li>📜 Fique à vontade para explorar, perguntar e interagir. Espero que a experiência seja tão divertida para você quanto foi para mim desenvolver este projeto! 🚀</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <img src="../images/web_dark.png" alt="Logo" width="100" class="mb-3">
+            <p>&copy; 2024 WeBoss.com.br. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Theme Toggle Script -->
+    <script src="../js/theme.js"></script>
+
+    <script>
+        // Inicialização de Modais, Popovers e Tooltips
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializar todos os popovers na página
+            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl)
+            });
+
+            // Inicializar todos os tooltips na página
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            });
+
+            // Adicionar modal de exemplo
+            const modalTrigger = document.getElementById('openModalBtn');
+            const exampleModal = new bootstrap.Modal('#exampleModal', {
+                keyboard: true
+            });
+
+            if (modalTrigger) {
+                modalTrigger.addEventListener('click', () => {
+                    exampleModal.show();
+                });
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatInput = document.getElementById('chat-input');
+            const sendButton = document.getElementById('send-chat');
+            const chatMessages = document.getElementById('chat-messages');
+
+            // URL do Webhook do Make (substitua pela sua URL real)
+            const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/tvzq13brdhyceemoj17q2kdi59a4cm7p';
+
+            // Função para adicionar mensagem ao chat
+            function addMessage(message, type = 'user') {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message', 'text-start', 'mb-2');
+                
+                if (type === 'user') {
+                    messageDiv.innerHTML = `<strong>Você:</strong> ${message}`;
+                } else {
+                    messageDiv.innerHTML = `<strong>Assistente:</strong> ${message}`;
+                }
+                
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            // Enviar pergunta para o Make
+            async function sendQuestion() {
+                const question = chatInput.value.trim();
+                if (!question) return;
+
+                // Adiciona mensagem do usuário
+                addMessage(question, 'user');
+                
+                try {
+                    const response = await fetch(MAKE_WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            query: question,
+                            context: 'curriculo'
+                        })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Erro na comunicação');
+                    }
+
+                    const data = await response.json();
+                    console.log('Resposta do Make:', data); // Debug
+                    
+                    // Adiciona resposta da IA
+                    if (data.response) {
+                        addMessage(data.response, 'ai');
+                    } else if (data.message) {
+                        addMessage(data.message, 'ai');
+                    } else {
+                        addMessage(JSON.stringify(data), 'ai');
+                    }
+                } catch (error) {
+                    addMessage('Desculpe, não consegui processar sua pergunta no momento.', 'ai');
+                    console.error('Erro:', error);
+                }
+
+                // Limpa input
+                chatInput.value = '';
+            }
+
+            // Eventos
+            sendButton.addEventListener('click', sendQuestion);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') sendQuestion();
+            });
+
+            // Inicializar o modal de Informações Importantes
+            const informacoesModal = new bootstrap.Modal(document.getElementById('informacoesModal'), {
+                keyboard: true
+            });
+        });
+    </script>
+</body>
+</html>

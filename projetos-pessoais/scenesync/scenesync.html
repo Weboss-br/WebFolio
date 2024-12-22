@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SceneSync - Projeto</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                W.
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html">.Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../../projetos.html">.Projetos Pessoais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">.Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../cv/curriculo.html">.Currículo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog">.Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">.Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <button id="theme-toggle" class="btn" title="Alternar Tema">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <div class="container mt-5 pt-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex align-items-center mb-3">
+                    <h1 class="display-4 mb-0 me-3">SceneSync</h1>
+                    <button id="verProjetoBtn" class="btn btn-primary">
+                        <i class="fas fa-eye me-2"></i>Ver o Projeto
+                    </button>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../../images/scenesync2.webp" alt="SceneSync" class="img-fluid rounded mb-4">
+                    </div>
+                    <div class="col-md-6">
+                        <h2>Sobre o Projeto</h2>
+                        <p class="mt-4">SceneSync é uma aplicação inovadora projetada para sincronizar e gerenciar cenas de projetos criativos, facilitando a colaboração e organização em produções audiovisuais.</p>
+                        
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 10%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">10% Concluído</div>
+                        </div>
+
+                        <h3 class="mt-5">Tecnologias Utilizadas</h3>
+                        <div class="mb-3">
+                            <span class="badge bg-primary me-2">React</span>
+                            <span class="badge bg-success me-2">Node.js</span>
+                            <span class="badge bg-info me-2">TypeScript</span>
+                            <span class="badge bg-warning me-2">Firebase</span>
+                        </div>
+
+                        <h3 class="mt-5">Funcionalidades Principais</h3>
+                        <ul class="list-group">
+                            <li class="list-group-item" style="background-color: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.15); color: white;">Gerenciamento de cenas em tempo real</li>
+                            <li class="list-group-item" style="background-color: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.15); color: white;">Colaboração simultânea entre equipes</li>
+                            <li class="list-group-item" style="background-color: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.15); color: white;">Exportação e importação de projetos</li>
+                            <li class="list-group-item" style="background-color: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.15); color: white;">Integração com ferramentas de produção</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <h2>Desafios e Aprendizados</h2>
+                        <p>Durante o desenvolvimento do SceneSync, enfrentei desafios significativos relacionados à sincronização em tempo real e à criação de uma interface intuitiva para gerenciamento de projetos criativos.</p>
+                    </div>
+                </div>
+
+                <div class="row mt-4"> 
+                    <div class="col-12">
+                        <h2>Projeto: Action Time</h2>
+                        <p>
+                            <strong>Descrição:</strong> O <strong>Action Time</strong> é um aplicativo web simples e intuitivo, projetado para ser usado em segundo plano por youtubers, criadores de conteúdo e professores durante gravações de vídeos ou aulas. Ele ajuda a controlar as cenas gravadas e otimiza o processo de edição, permitindo ao usuário marcar momentos específicos da gravação como "Cena Boa," "Cena a Revisar" ou "Cena Ruim."
+                        </p>
+                        <script>
+                            document.getElementById('verProjetoBtn').addEventListener('click', function() {
+                                const projetoSection = document.querySelector('.card.text-center');
+                                projetoSection.scrollIntoView({ 
+                                    behavior: 'smooth', 
+                                    block: 'start' 
+                                });
+                            });
+                        </script>
+                        <p>
+                            Além disso, oferece sincronização manual inicial com o gravador de vídeo por meio de uma contagem regressiva, garantindo que o tempo no gravador e no programa esteja alinhado.
+                        </p>
+                        <h3>Funcionalidades da Primeira Versão</h3>
+                        <ol>
+                            <li>
+                                <strong>Sincronização com Contagem Regressiva:</strong>
+                                <p>O usuário clica no botão "Iniciar". Uma contagem regressiva de 5 segundos é iniciada com um som de "tic, tic, tic..." para que o usuário possa sincronizar o gravador de vídeo com o aplicativo. Exemplo de contagem: "5, 4, 3, 2, 1, Gravando!"</p>
+                            </li>
+                            <li>
+                                <strong>Controle de Cenas:</strong>
+                                <ul>
+                                    <li>Iniciar: Inicia a gravação e a contagem do tempo.</li>
+                                    <li>Finalizar: Finaliza a gravação e gera o relatório.</li>
+                                    <li>Cena Boa: Marca um trecho da gravação como aceitável.</li>
+                                    <li>Cena Revisar: Marca um trecho que precisa ser revisado.</li>
+                                    <li>Cena Ruim: Marca um trecho que deve ser descartado.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Exemplo Prático de Uso:</strong>
+                                <p>
+                                    O usuário começa a gravação clicando em "Iniciar". O programa faz a contagem regressiva "5, 4, 3, 2, 1, Gravando". O cronômetro do aplicativo começa a contar a partir de 0:00.
+                                </p>
+                                <ul>
+                                    <li>0:00 até 0:30 - Cena Ruim.</li>
+                                    <li>0:30 até 2:30 - Cena Boa.</li>
+                                    <li>2:30 até 3:00 - Cena Revisar.</li>
+                                    <li>3:00 até 5:00 - Cena Ruim.</li>
+                                    <li>5:00 até 9:00 - Cena Boa.</li>
+                                </ul>
+                                <p>Relatório final é gerado automaticamente, exibindo o tempo de cada tipo de cena.</p>
+                            </li>
+                            <li>
+                                <strong>Acompanhamento Visual:</strong>
+                                <p>O aplicativo inclui um cronômetro em destaque e uma linha do tempo visual com cores diferentes para cada tipo de cena: Verde (Cenas Boas), Amarelo (Cenas a Revisar) e Vermelho (Cenas Ruins).</p>
+                            </li>
+                            <li>
+                                <strong>Som Personalizável:</strong>
+                                <p>O usuário pode escolher o som da contagem regressiva, como o padrão "tic-tic" ou outros efeitos sonoros disponíveis.</p>
+                            </li>
+                            <li>
+                                <strong>Relatório Exportável:</strong>
+                                <p>O relatório final pode ser exportado em formatos como TXT, CSV ou PDF, permitindo fácil uso no software de edição.</p>
+                            </li>
+                            <li>
+                                <strong>Atalhos de Teclado:</strong>
+                                <ul>
+                                    <li>Espaço: Iniciar/Finalizar</li>
+                                    <li>1: Cena Boa</li>
+                                    <li>2: Cena Revisar</li>
+                                    <li>3: Cena Ruim</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <h3>Futuras Implementações</h3>
+                        <ul>
+                            <li>Integração com Gravadores de Vídeo, como OBS Studio.</li>
+                            <li>App Mobile para maior flexibilidade em gravações.</li>
+                            <li>Reconhecimento de Voz para comandos como "Boa", "Revisar" ou "Ruim".</li>
+                            <li>Customização de Botões, permitindo adicionar botões como "Cena Ótima".</li>
+                            <li>Relatórios Avançados, incluindo gráficos de barras para visualizar o tempo de cada cena.</li>
+                            <li>Edição Automática com exportação compatível para softwares como Adobe Premiere.</li>
+                        </ul>
+                        <h3>Benefícios</h3>
+                        <p>
+                            Redução significativa do tempo de edição ao identificar rapidamente os trechos úteis e problemáticos. Simplicidade e eficiência, ideal para criadores de conteúdo de todos os níveis.
+                        </p>
+                        <h3>Próximos Passos</h3>
+                        <ol>
+                            <li>Criar protótipo inicial com as funcionalidades descritas.</li>
+                            <li>Desenvolver a interface com HTML, CSS e JavaScript.</li>
+                            <li>Implementar a lógica de sincronização e registro de cenas.</li>
+                            <li>Testar o aplicativo com youtubers e criadores para coletar feedback.</li>
+                        </ol>
+                    </div>
+                </div>
+                
+
+
+<div class="row mt-4"> 
+    <div class="col-12">
+        <div class="card text-center mx-auto" style="max-width: 800px;">
+            <div class="card-body">
+                <h2 class="card-title">SceneSync BETA V1.0</h2>
+                <p class="card-text">O SceneSync é um aplicativo web projetado para otimizar gravações e facilitar o processo de edição, ideal para criadores de conteúdo e professores. Com funcionalidades intuitivas, permite marcar cenas como boas, revisar ou ruins durante a gravação, e gerar relatórios automáticos ao final.</p>
+                <hr class="my-4 border-primary">
+                <div class="mt-3">
+                    <!-- Botões para controle -->
+                    <div class="row mb-2 justify-content-center">
+                        <div class="col-auto">
+                            <div class="btn-group control-buttons" role="group" aria-label="Control Buttons">
+                                <button id="startButton" class="btn btn-success btn-circle btn-xl d-flex flex-column align-items-center justify-content-center">
+                                    <i class="fas fa-play mb-1"></i>
+                                    <small>Iniciar</small>
+                                </button>
+                                <button id="stopButton" class="btn btn-danger btn-circle btn-xl disabled d-flex flex-column align-items-center justify-content-center">
+                                    <i class="fas fa-stop mb-1"></i>
+                                    <small>Finalizar</small>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2 justify-content-center">
+                        <div class="col-auto">
+                            <div class="btn-group" role="group" aria-label="Scene Buttons">
+                                <button id="goodSceneButton" class="btn btn-primary btn-scene disabled">
+                                    <i class="fas fa-check-circle me-2"></i>Cena Boa
+                                </button>
+                                <button id="reviewSceneButton" class="btn btn-warning btn-scene disabled">
+                                    <i class="fas fa-exclamation-triangle me-2"></i>Cena Revisar
+                                </button>
+                                <button id="badSceneButton" class="btn btn-secondary btn-scene disabled">
+                                    <i class="fas fa-times-circle me-2"></i>Cena Ruim
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <style>
+                .btn-circle {
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.2rem;
+                }
+
+                .btn.disabled {
+                    opacity: 0.4;
+                    cursor: not-allowed;
+                }
+
+                .btn-scene {
+                    min-width: 180px;
+                }
+
+                .btn-scene.disabled {
+                    opacity: 0.4;
+                    cursor: not-allowed;
+                }
+
+                .btn-group .btn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .btn-group.control-buttons .btn {
+                    margin: 0 10px;
+                }
+                
+                #goodSceneButton {
+                    background-color: #0d6efd !important;
+                    border-color: #0d6efd !important;
+                    color: white !important;
+                }
+
+                #goodSceneButton:hover {
+                    background-color: #0b5ed7 !important;
+                    border-color: #0a58ca !important;
+                }
+                </style>
+                <!-- Exibição do cronômetro -->
+                <div class="mt-3">
+                    <h3>Cronômetro: <span id="timer">00:00</span></h3>
+                </div>
+                <!-- Exibição do relatório -->
+                <div class="mt-3">
+                    <h3>Relatório</h3>
+                    <pre id="report"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="scenesync.js"></script>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <img src="../../images/web_dark.png" alt="Logo" width="100" class="mb-3">
+            <p> 2024 WeBoss.com.br. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="../../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+:root {
+    --primary-color: #ffd700;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+    --text-color: #f8f9fa;
+    --bg-color: #212529;
+    --card-bg: #343a40;
+    --border-color: #495057;
+}
+
+:root.light-theme {
+    --primary-color: #212529;
+    --dark-color: #f8f9fa;
+    --light-color: #212529;
+    --text-color: #212529;
+    --bg-color: #ffffff;
+    --card-bg: #f1f3f5;
+    --border-color: #dee2e6;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    padding-top: 76px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Navbar Styling */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: var(--dark-color) !important;
+}
+
+.navbar-brand {
+    color: var(--primary-color) !important;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: var(--light-color) !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+/* Menu Active State */
+.navbar-nav .nav-link.active {
+    color: var(--primary-color) !important;
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 2px;
+}
+
+.light-theme .navbar-brand {
+    color: #212529 !important;
+}
+
+.light-theme .nav-link {
+    color: #212529 !important;
+}
+
+.light-theme .nav-link.active {
+    color: #212529 !important;
+    text-decoration-color: #212529;
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    height: 100vh;
+    position: relative;
+}
+
+.hero h1 {
+    color: var(--primary-color);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--dark-color);
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #e6c200;
+    border-color: #e6c200;
+    color: var(--dark-color);
+}
+
+/* Section Padding */
+.section-padding {
+    padding: 100px 0;
+}
+
+/* Form Styling */
+.form-control {
+    border: 2px solid var(--dark-color);
+    padding: 12px;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+}
+
+/* Profile Image Styling */
+.profile-image {
+    max-width: 400px;
+    border: 3px solid var(--primary-color);
+    transition: transform 0.3s ease;
+    border-radius: 20px; /* Adiciona cantos arredondados */
+    object-fit: cover; /* Garante que a imagem cubra o quadrado sem distorcer */
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+/* Thumbnail Styling */
+.thumbnail {
+    padding: 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.thumbnail:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.thumbnail img {
+    width: 100%;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.caption {
+    padding: 20px;
+}
+
+/* Estilos para títulos de thumbnails */
+.thumbnail .caption h3 {
+    margin-top: 0;
+    transition: color 0.3s ease;
+}
+
+/* Tema claro - mantem como está */
+.light-theme .thumbnail .caption h3 {
+    color: #212529 !important;
+}
+
+/* Tema escuro - novo seletor */
+:root:not(.light-theme) .thumbnail .caption h3 {
+    color: #ffffff !important;
+}
+
+/* Logo Styling */
+.logo {
+    max-height: 40px;
+    width: auto;
+    filter: brightness(1.5); /* Ajusta o brilho para combinar com o fundo escuro */
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        text-align: center;
+    }
+    
+    .section-padding {
+        padding: 60px 0;
+    }
+}
+
+/* Button Secondary */
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+    color: white;
+}
+
+/* Cards */
+.card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+
+/* Botão de Tema */
+#theme-toggle {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: all 0.3s ease;
+    margin: auto 0;
+    vertical-align: middle;
+}
+
+#theme-toggle:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+    transform: scale(1.1);
+}
+
+.light-theme #theme-toggle {
+    border-color: #212529;
+    color: #212529;
+}
+
+.light-theme #theme-toggle:hover {
+    background-color: rgba(33, 37, 41, 0.1);
+}
+
+.navbar-nav .nav-item {
+    display: flex;
+    align-items: center;
+}
+
+#theme-toggle i {
+    font-size: 12px;
+}
+
+/* Adiciona estilos para manter os cards do Porcentômetro com altura uniforme */
+.porcentometro-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.porcentometro-card .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.porcentometro-card form {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.porcentometro-card .d-grid {
+    margin-top: auto;
+}
+
+/* Adiciona estilo para descrições com maior contraste */
+.porcentometro-description {
+    color: #ababab !important;
+    font-weight: 500;
+}
+
+body.light-theme .porcentometro-description {
+    color: rgba(33, 37, 41, 0.8) !important;
+}
+
+.dark-theme .form-label {
+    color: #ababab !important;
+    font-weight: 500;
+}
+
+.dark-theme .form-control::placeholder {
+    color: rgba(171, 171, 171, 0.7) !important;
+}
