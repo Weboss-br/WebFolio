@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">.Home</a>
+                        <a class="nav-link active" href="index.html">..Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="projetos.html">.Projetos Pessoais</a>
@@ -75,16 +75,23 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <form id="contact-form">
-                        <div class="mb-3">
-                            <input type="text" name="nome" class="form-control" placeholder="Nome" required>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" name="nome" class="form-control" placeholder="Seu Nome" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" name="email" class="form-control" placeholder="Seu E-mail" required>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <input type="tel" name="whatsapp" class="form-control" placeholder="Seu WhatsApp (opcional)">
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <textarea name="mensagem" class="form-control" rows="5" placeholder="Sua Mensagem" required></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary w-100">Enviar Mensagem</button>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <input type="email" name="email" class="form-control" placeholder="Email" required>
-                        </div>
-                        <div class="mb-3">
-                            <textarea name="mensagem" class="form-control" rows="5" placeholder="Mensagem" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
                     </form>
 
                     <script>
@@ -95,19 +102,22 @@
                         const data = Object.fromEntries(formData);
                         
                         console.log('Dados a serem enviados:', data);
+                        console.log('Hostname atual:', window.location.hostname);
                         
-                        const isLocalhost = window.location.hostname === 'localhost' || 
-                                            window.location.hostname === '127.0.0.1' ||
-                                            window.location.protocol === 'file:';
+                        // Só funciona no domínio específico
+                        const allowedDomains = ['www.weboss.com.br', 'weboss.com.br'];
                         
-                        if (isLocalhost) {
-                            console.warn('Ambiente local - simulando envio');
-                            window.location.href = 'obrigado.html';
+                        if (!allowedDomains.includes(window.location.hostname)) {
+                            console.warn('Domínio não permitido:', window.location.hostname);
+                            alert('Envio de formulário não permitido neste ambiente.');
                             return;
                         }
                         
-                        fetch('https://script.google.com/macros/s/AKfycbz8WhvAnxlSACvv4sjo4rJA_n78wVf8_r6qxuRXtqdzSJCDfbUd2LyL_TiEFGFobQfuAA/exec', {
+                        // Envio para produção
+                        fetch('https://www.weboss.com.br/processa_contato.php', {
                             method: 'POST',
+                            mode: 'cors',
+                            cache: 'no-cache',
                             headers: {
                                 'Content-Type': 'application/json',
                             },
@@ -115,15 +125,19 @@
                         })
                         .then(response => {
                             console.log('Resposta recebida:', response);
-                            return response.text();
+                            return response.json();
                         })
                         .then(result => {
                             console.log('Resultado:', result);
-                            window.location.href = 'https://www.weboss.com.br/obrigado.html';
+                            if (result.result === 'success') {
+                                window.location.href = 'https://www.weboss.com.br/obrigado.html';
+                            } else {
+                                throw new Error(result.error || 'Erro desconhecido');
+                            }
                         })
                         .catch(error => {
                             console.error('Erro detalhado:', error);
-                            alert('Erro ao enviar mensagem. Verifique o console.');
+                            alert('Erro ao enviar mensagem. Verifique o console para mais detalhes.');
                         });
                     });
                     </script>

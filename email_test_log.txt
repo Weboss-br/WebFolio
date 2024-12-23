@@ -1,0 +1,27 @@
+2024-12-23 13:49:01 - Teste de E-mail: SUCESSO
+2024-12-23 13:52:23 - Teste de E-mail: SUCESSO
+2024-12-23 13:56:21 - Teste de E-mail:
+Destinatário: contato@weboss.com.br
+Assunto: Teste de Envio de E-mail
+Status: SUCESSO
+Último Erro: 
+-------------------
+2024-12-23 13:59:35 - Teste de E-mail:
+Destinatário: contato@weboss.com.br
+Status: SUCESSO
+Destinatário: weboss@gmail.com
+Status: SUCESSO
+Último Erro: 
+-------------------
+2024-12-23 14:01:38 - Teste de E-mail:
+Destinatário: contato@weboss.com.br
+Status: SUCESSO
+Destinatário: weboss@gmail.com
+Status: SUCESSO
+Último Erro: 
+-------------------
+2024-12-23 14:01:53 - Teste de E-mail:
+Destinatário: weboss@gmail.com
+Status: SUCESSO
+Último Erro: 
+-------------------
