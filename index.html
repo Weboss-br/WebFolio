@@ -74,18 +74,59 @@
             <h2 class="text-center mb-5">Contato</h2>
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <form>
+                    <form id="contact-form">
                         <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Nome">
+                            <input type="text" name="nome" class="form-control" placeholder="Nome" required>
                         </div>
                         <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Email">
+                            <input type="email" name="email" class="form-control" placeholder="Email" required>
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control" rows="5" placeholder="Mensagem"></textarea>
+                            <textarea name="mensagem" class="form-control" rows="5" placeholder="Mensagem" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
                     </form>
+
+                    <script>
+                    document.getElementById('contact-form').addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        
+                        const formData = new FormData(this);
+                        const data = Object.fromEntries(formData);
+                        
+                        console.log('Dados a serem enviados:', data);
+                        
+                        const isLocalhost = window.location.hostname === 'localhost' || 
+                                            window.location.hostname === '127.0.0.1' ||
+                                            window.location.protocol === 'file:';
+                        
+                        if (isLocalhost) {
+                            console.warn('Ambiente local - simulando envio');
+                            window.location.href = 'obrigado.html';
+                            return;
+                        }
+                        
+                        fetch('https://script.google.com/macros/s/AKfycbz8WhvAnxlSACvv4sjo4rJA_n78wVf8_r6qxuRXtqdzSJCDfbUd2LyL_TiEFGFobQfuAA/exec', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(data)
+                        })
+                        .then(response => {
+                            console.log('Resposta recebida:', response);
+                            return response.text();
+                        })
+                        .then(result => {
+                            console.log('Resultado:', result);
+                            window.location.href = 'https://www.weboss.com.br/obrigado.html';
+                        })
+                        .catch(error => {
+                            console.error('Erro detalhado:', error);
+                            alert('Erro ao enviar mensagem. Verifique o console.');
+                        });
+                    });
+                    </script>
                 </div>
             </div>
         </div>
