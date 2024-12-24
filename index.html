@@ -10,6 +10,27 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .nav-link-disabled {
+            cursor: default !important;
+            text-decoration: none !important;
+        }
+        .nav-link-disabled:hover {
+            color: inherit !important;
+            background: none !important;
+        }
+        /* Efeito de piscada para o ponto final */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .blinking-cursor {
+            animation: blink 1s infinite;
+            display: inline-block;
+            margin-left: 2px;
+            color: #ffc107; /* Cor amarela do Bootstrap */
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -24,19 +45,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">..Home</a>
+                        <a class="nav-link active" href="index.html">.Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="projetos.html">.Projetos Pessoais</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">.Portfolio</a>
+                        <span class="nav-link text-muted nav-link-disabled">.<span style="text-decoration: line-through;">Portfolio</span></span>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="cv/curriculo.html">.Currículo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#blog">.Blog</a>
+                        <span class="nav-link text-muted nav-link-disabled">.<span style="text-decoration: line-through;">Blog</span></span>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contato">.Contato</a>
@@ -56,9 +77,12 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-md-6">
-                    <h1 class="display-4 fw-bold">Bem-vindo ao meu Portfólio</h1>
+                    <h1 class="display-4 fw-bold mb-4">Bem-vindo ao meu Portfólio<span class="blinking-cursor">.</span></h1>
                     <p class="lead">Desenvolvedor Web Criativo & Inovador</p>
-                    <a href="projetos.html" class="btn btn-primary">Ver Projetos</a>
+                    <div class="d-flex gap-3">
+                        <a href="projetos.html" class="btn btn-primary">Ver Projetos</a>
+                        <a href="cv/curriculo.html" class="btn btn-dark fw-bold text-warning" style="background-color: #212529 !important; border-color: #999696 !important;">Converse com meu CV <i class="fas fa-robot ms-2"></i></a>
+                    </div>
                 </div>
                 <div class="col-md-6 text-center">
                     <img src="./images/heiss.jpg" alt="Minha Foto" class="profile-image img-fluid rounded shadow">
@@ -129,10 +153,10 @@
                         })
                         .then(result => {
                             console.log('Resultado:', result);
-                            if (result.result === 'success') {
+                            if (result.status === 'success') {
                                 window.location.href = 'https://www.weboss.com.br/obrigado.html';
                             } else {
-                                throw new Error(result.error || 'Erro desconhecido');
+                                throw new Error(result.message || 'Erro desconhecido');
                             }
                         })
                         .catch(error => {
