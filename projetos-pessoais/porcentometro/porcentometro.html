@@ -50,10 +50,17 @@
             </div>
         </div>
     </nav>
-
+                <!-- Header -->
+                <header class="bg-dark text-white py-5 mt-5">
+                    <div class="container">
+                        <h1>Porcentômetro</h1>
+                        <p class="lead">Descubra porcentagens de forma instantânea com uma ferramenta simples, prática e acessível para várias necessidades.</p>
+                    </div>
+                </header>
     <!-- Conteúdo Principal -->
     <div class="container py-5">
         <div class="row g-4">
+
             <!-- Porcentagem de um Número -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card border-0 shadow-sm porcentometro-card">
@@ -212,31 +219,7 @@
                 </div>
             </div>
 
-            <!-- Cálculo de Imposto -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card border-0 shadow-sm porcentometro-card">
-                    <div class="card-body p-4">
-                        <h3 class="card-title text-center mb-3">Calculadora de Imposto</h3>
-                        <p class="text-muted text-center mb-4 porcentometro-description">Calcule o valor do imposto e o preço total.</p>
-                        <form id="taxForm">
-                            <div class="mb-3">
-                                <label for="priceBeforeTax" class="form-label">Preço Antes do Imposto</label>
-                                <input type="number" class="form-control" id="priceBeforeTax" placeholder="Digite o preço antes do imposto" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="taxRate" class="form-label">Taxa de Imposto (%)</label>
-                                <input type="number" class="form-control" id="taxRate" placeholder="Digite a taxa de imposto" required>
-                            </div>
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-primary">Calcular</button>
-                            </div>
-                            <div id="taxResult" class="mt-3 text-center"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Rodapé -->
     <footer class="bg-dark text-white py-4">

@@ -28,6 +28,11 @@ function updateReport() {
             ? formatTime(scene.end) 
             : 'Em andamento';
         
+        // Se for a última cena e a gravação estiver em andamento, não mostra o tipo
+        if (index === scenes.length - 1 && scene.end === null) {
+            return `${startTime} até ${endTime}`;
+        }
+        
         return `${startTime} até ${endTime} - ${scene.type}`;
     });
     
@@ -41,6 +46,7 @@ function updateButtonStates() {
     const goodSceneButton = document.getElementById('goodSceneButton');
     const reviewSceneButton = document.getElementById('reviewSceneButton');
     const badSceneButton = document.getElementById('badSceneButton');
+    const downloadReportBtn = document.getElementById('downloadReportBtn');
 
     // Estado inicial: todos os botões de cena e finalizar inativos
     if (!startTime) {
@@ -49,6 +55,7 @@ function updateButtonStates() {
         goodSceneButton.classList.add('disabled');
         reviewSceneButton.classList.add('disabled');
         badSceneButton.classList.add('disabled');
+        downloadReportBtn.classList.add('disabled');
     } 
     // Durante a gravação
     else if (isRecording) {
@@ -57,6 +64,7 @@ function updateButtonStates() {
         goodSceneButton.classList.remove('disabled');
         reviewSceneButton.classList.remove('disabled');
         badSceneButton.classList.remove('disabled');
+        downloadReportBtn.classList.add('disabled');
     }
     // Após finalizar
     else {
@@ -65,6 +73,14 @@ function updateButtonStates() {
         goodSceneButton.classList.add('disabled');
         reviewSceneButton.classList.add('disabled');
         badSceneButton.classList.add('disabled');
+        
+        // Habilita o botão de download se houver relatório
+        const reportElement = document.getElementById('report');
+        if (reportElement.innerText.trim() !== '') {
+            downloadReportBtn.classList.remove('disabled');
+        } else {
+            downloadReportBtn.classList.add('disabled');
+        }
     }
 }
 
@@ -250,6 +266,25 @@ function generateDetailedReport() {
     return detailedReport;
 }
 
+// Função para baixar relatório
+function downloadReport() {
+    const reportElement = document.getElementById('report');
+    const reportText = reportElement.innerText;
+    
+    // Cria um blob com o texto do relatório
+    const blob = new Blob([reportText], { type: 'text/plain' });
+    
+    // Cria um link de download
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'relatorio_scenesync.txt';
+    
+    // Adiciona o link ao documento, clica nele e remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
 // Função de geração de relatório final
 function generateReport() {
     console.log('Relatório final:', scenes);
@@ -257,3 +292,14 @@ function generateReport() {
 
 // Chama updateButtonStates no carregamento da página
 document.addEventListener('DOMContentLoaded', updateButtonStates);
+
+// Adiciona evento de download do relatório
+document.getElementById('downloadReportBtn').addEventListener('click', () => {
+    const downloadButton = document.getElementById('downloadReportBtn');
+    const reportElement = document.getElementById('report');
+    
+    // Só permite download se houver conteúdo no relatório
+    if (reportElement.innerText.trim() !== '') {
+        downloadReport();
+    }
+});
