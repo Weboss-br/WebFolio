@@ -119,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li>FGTS (8%): <strong>${formatCurrency(salary * 0.08)}</strong></li>
                 <li>INSS Patronal (20%): <strong>${formatCurrency(salary * 0.2)}</strong></li>
             </ul>
-            <p><strong>💰🦹 Valor total de Imposto: ${formatCurrency(inssContribution + irContribution + salary * 0.2)}</strong></p>
         `;
 
         // Exemplo de uso para demonstração
