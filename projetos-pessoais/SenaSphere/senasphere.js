@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const sortearBtn = document.getElementById('sortearBtn');
     const numerosContainer = document.getElementById('numerosContainer');
+    const numerosContainer2 = document.getElementById('numerosContainer2');
     const ultimoResultadoContainer = document.createElement('div');
     ultimoResultadoContainer.classList.add('mt-4', 'text-center');
     numerosContainer.parentNode.insertBefore(ultimoResultadoContainer, numerosContainer.nextSibling);
@@ -40,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const numerosOrdenados = Array.from(numeros).sort((a, b) => Number(a) - Number(b));
 
         // Atualiza os badges com os números sorteados
-        const badges = numerosContainer.querySelectorAll('.badge');
+        const badges = numerosContainer2.querySelectorAll('.badge');
         numerosOrdenados.forEach((numero, index) => {
             badges[index].textContent = numero;
             badges[index].classList.remove('bg-secondary');
