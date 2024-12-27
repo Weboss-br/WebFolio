@@ -71,7 +71,7 @@
                                 <div class="input-group">
                                     <span class="input-group-text">R$</span>
                                     <input type="number" class="form-control" id="salary" name="salary" 
-                                           placeholder="Digite seu salário mensal" required min="0" step="0.01" value="">
+                                           placeholder="Digite seu salário mensal" required min="0" step="0.01" value="2500">
                                     <div class="invalid-feedback">
                                         Por favor, insira um salário válido.
                                     </div>
@@ -81,7 +81,7 @@
                             <div class="mb-3">
                                 <label for="benefits" class="form-label">Benefícios (R$)</label>
                                 <input type="number" class="form-control" id="benefits" name="benefits" 
-                                       placeholder="Digite o valor total dos benefícios" required min="0" step="0.01">
+                                       placeholder="Digite o valor total dos benefícios" required min="0" step="0.01" value="1000">
                             </div>
 
                             <div class="row">
@@ -140,15 +140,26 @@
                         
                         <div class="row mt-4 text-center">
                             <div class="col-md-6">
-                                <h5>💵 Salário Bruto</h5>
+                                <h5>💵 Salário Bruto(com custos)</h5>
                                 <div class="h4 text-info" id="grossSalary">-</div>
                             </div>
                             <div class="col-md-6">
-                                <h5>💰 Salário Líquido</h5>
+                                <h5>💰 Salário Líquido(com descontos)</h5>
                                 <div class="h4 text-success" id="netSalary">-</div>
                             </div>
                         </div>
-                        
+                        <div class="row text-center">
+                            <div class="col-12">
+                                <h5>🏢 Custo Total para o Empregador</h5>
+                                <div class="h4 text-warning" id="employerCost">-</div>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-12">
+                                <h5>💰🦹 Valor total de Imposto</h5>
+                                <div class="h4 text-danger" id="totalTaxes" style="white-space: pre-line;"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
