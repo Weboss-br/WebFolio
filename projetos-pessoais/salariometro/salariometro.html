@@ -55,7 +55,7 @@
     <header class="bg-dark text-white py-5 mt-5">
         <div class="container">
             <h1>Salariômetro</h1>
-            <p class="lead">Calcule seus rendimentos, horas trabalhadas e projeções salariais com facilidade. Depois não adianta chorar!</p>
+            <p class="lead">Calcule seus rendimentos, impostos e projeções salariais com facilidade.</p>
         </div>
     </header>
 
@@ -76,6 +76,12 @@
                                         Por favor, insira um salário válido.
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="benefits" class="form-label">Benefícios (R$)</label>
+                                <input type="number" class="form-control" id="benefits" name="benefits" 
+                                       placeholder="Digite o valor total dos benefícios" required min="0" step="0.01">
                             </div>
 
                             <div class="row">
@@ -131,6 +137,18 @@
                                 <div class="h4 text-danger" id="annualSalary">-</div>
                             </div>
                         </div>
+                        
+                        <div class="row mt-4 text-center">
+                            <div class="col-md-6">
+                                <h5>💵 Salário Bruto</h5>
+                                <div class="h4 text-info" id="grossSalary">-</div>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>💰 Salário Líquido</h5>
+                                <div class="h4 text-success" id="netSalary">-</div>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
 
@@ -138,26 +156,28 @@
                     <div class="card-body">
                         <h4 class="card-title mb-3">Análise Financeira Detalhada</h4>
                         <div id="additionalInfo"></div>
+                        <p class="mt-4 text-muted" style="color: rgba(255, 255, 255, 0.7) !important; font-size: 0.9rem;">
+                            ⚠️ Estes são cálculos estimados baseados em valores médios e regras gerais. 
+                            Variáveis como descontos específicos, benefícios personalizados e deduções podem alterar os valores finais.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-        <!-- Footer -->
-        <footer class="bg-dark text-white py-4">
-            <div class="container text-center">
-                <img src="../../images/web_dark.png" alt="Logo" width="100" class="mb-3">
-                <p> 2024 WeBoss.com.br. Todos os direitos reservados.</p>
-            </div>
-        </footer>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <img src="../../images/web_dark.png" alt="Logo" width="100" class="mb-3">
+            <p>2024 WeBoss.com.br. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
     <!-- Theme Toggle Script -->
     <script src="../../js/theme.js"></script>
-    
     <!-- Page Script -->
     <script src="script.js"></script>
 </body>

@@ -1,26 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('salaryForm');
-    const calculateBtn = document.getElementById('calculateBtn');
-    const resultContainer = document.getElementById('resultContainer');
-    const additionalInfoContainer = document.getElementById('additionalInfoContainer');
+    console.log("Script e DOM carregados!");
 
-    // Elementos de resultado
+    const calculateBtn = document.getElementById('calculateBtn');
     const monthlyHoursEl = document.getElementById('monthlyHours');
     const hourlyRateEl = document.getElementById('hourlyRate');
     const annualSalaryEl = document.getElementById('annualSalary');
     const additionalInfoEl = document.getElementById('additionalInfo');
+    const resultContainer = document.getElementById('resultContainer');
+    const additionalInfoContainer = document.getElementById('additionalInfoContainer');
 
-    // Constantes de impostos (estimativa simplificada)
-    const INSS_RATE = 0.11; // 11% de contribuição previdenciária
-    const IR_RATES = [
-        { min: 0, max: 1903.98, rate: 0 },
-        { min: 1903.99, max: 2826.65, rate: 0.075 },
-        { min: 2826.66, max: 3751.05, rate: 0.15 },
-        { min: 3751.06, max: 4664.68, rate: 0.225 },
-        { min: 4664.69, max: Infinity, rate: 0.275 }
-    ];
+    if (!calculateBtn) {
+        console.error("Botão 'Calcular Rendimentos' não encontrado!");
+        return;
+    }
 
-    // Função para formatar moeda brasileira
+    const INSS_RATE = 0.11; // INSS padrão
+    const minimumWage = 1320; // Salário mínimo atual no Brasil (2024)
+
     function formatCurrency(value) {
         return value.toLocaleString('pt-BR', {
             style: 'currency',
@@ -30,123 +26,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Validação do formulário
-    function validateForm() {
-        let isValid = form.checkValidity();
-        form.classList.add('was-validated');
-
-        // Validação customizada para horários
-        const startMorning = document.getElementById('startMorning').value;
-        const endMorning = document.getElementById('endMorning').value;
-        const startAfternoon = document.getElementById('startAfternoon').value;
-        const endAfternoon = document.getElementById('endAfternoon').value;
-
-        if (convertTimeToMinutes(startMorning) >= convertTimeToMinutes(endMorning)) {
-            alert('Horário de início da manhã deve ser menor que o horário de fim da manhã.');
-            isValid = false;
-        }
-
-        if (convertTimeToMinutes(startAfternoon) >= convertTimeToMinutes(endAfternoon)) {
-            alert('Horário de início da tarde deve ser menor que o horário de fim da tarde.');
-            isValid = false;
-        }
-
-        return isValid;
-    }
-
-    // Calcular imposto de renda
-    function calculateIncomeTax(salary) {
-        const taxableIncome = salary;
-        let totalTax = 0;
-
-        for (const bracket of IR_RATES) {
-            if (taxableIncome > bracket.min) {
-                const taxablePart = Math.min(taxableIncome, bracket.max) - bracket.min;
-                totalTax += taxablePart * bracket.rate;
-            }
-        }
-
-        return totalTax;
-    }
-
     calculateBtn.addEventListener('click', () => {
-        if (!validateForm()) return;
+        console.log("Botão clicado!");
 
-        const salary = parseFloat(document.getElementById('salary').value);
-        const startMorning = document.getElementById('startMorning').value;
-        const endMorning = document.getElementById('endMorning').value;
-        const startAfternoon = document.getElementById('startAfternoon').value;
-        const endAfternoon = document.getElementById('endAfternoon').value;
-        const workDays = parseInt(document.getElementById('workDays').value);
+        const salary = parseFloat(document.getElementById('salary').value || 0);
+        const benefits = parseFloat(document.getElementById('benefits').value || 0);
+        const workDays = parseInt(document.getElementById('workDays').value || 0);
 
-        // Converte horários para minutos
-        const startMorningMinutes = convertTimeToMinutes(startMorning);
-        const endMorningMinutes = convertTimeToMinutes(endMorning);
-        const startAfternoonMinutes = convertTimeToMinutes(startAfternoon);
-        const endAfternoonMinutes = convertTimeToMinutes(endAfternoon);
+        if (isNaN(salary) || salary <= 0 || isNaN(workDays) || workDays <= 0) {
+            alert("Por favor, insira valores válidos para salário e dias úteis.");
+            return;
+        }
 
-        // Calcula tempo total trabalhado em minutos por dia
-        const morningShiftMinutes = endMorningMinutes - startMorningMinutes;
-        const afternoonShiftMinutes = endAfternoonMinutes - startAfternoonMinutes;
-        const totalMinutesPerDay = morningShiftMinutes + afternoonShiftMinutes;
-
-        // Calcula tempo total trabalhado em horas por mês
-        const totalHoursPerMonth = (totalMinutesPerDay / 60) * workDays;
-        const totalMinutesPerMonth = totalMinutesPerDay * workDays;
-
-        // Calcula ganhos por hora e por ano
+        const totalHoursPerMonth = 8 * workDays;
         const hourlyRate = salary / totalHoursPerMonth;
-        const minuteRate = salary / (totalMinutesPerMonth);
         const annualSalary = salary * 12;
-
-        // Calcula impostos
         const inssContribution = salary * INSS_RATE;
-        const incomeTax = calculateIncomeTax(salary);
-        const totalTaxes = inssContribution + incomeTax;
+        const netSalary = salary - inssContribution;
+        const totalEmployerCost = salary + benefits + (salary * 0.2) + (salary * 0.08);
 
-        // Calcula horas necessárias para ganhar R$ 500 e R$ 1 milhão
-        const hoursTo500 = 500 / hourlyRate;
-        const daysTo500 = hoursTo500 / (totalHoursPerMonth / workDays);
-        const hoursToMillion = 1000000 / (hourlyRate * 12);
-        const daysToMillion = hoursToMillion / (totalHoursPerMonth / workDays);
-        const calendarDaysToMillion = hoursToMillion / 8; // Considerando 8h por dia
-
-        // Exibe os resultados
         monthlyHoursEl.textContent = `${totalHoursPerMonth.toFixed(2)} h`;
         hourlyRateEl.textContent = formatCurrency(hourlyRate);
         annualSalaryEl.textContent = formatCurrency(annualSalary);
 
-        // Adiciona informações extras
+        document.getElementById('grossSalary').textContent = formatCurrency(salary + benefits);
+        document.getElementById('netSalary').textContent = formatCurrency(netSalary);
+
         additionalInfoEl.innerHTML = `
-            <p>🕒 Para ganhar R$ 500 você precisa trabalhar: <strong>${hoursTo500.toFixed(2)} horas</strong> 
-            (isso dá cerca de <strong>${daysTo500.toFixed(1)} dias trabalhados</strong>)</p>
-            <p>💰 Para ganhar R$ 1 milhão, você precisará trabalhar: 
-                <strong>${hoursToMillion.toFixed(2)} horas</strong>
-                (cerca de <strong>${daysToMillion.toFixed(0)} dias úteis</strong> 
-                ou <strong>${Math.ceil(calendarDaysToMillion)} dias corridos</strong>)
-            </p>
-            <p>⏱️ Seu minuto vale: <strong>${formatCurrency(minuteRate)}</strong></p>
-            <p>💸 Impostos estimados (mensais):</p>
+            <p>🏢 Custo Total para o Empregador: <strong>${formatCurrency(totalEmployerCost)}</strong></p>
             <ul>
                 <li>INSS (11%): <strong>${formatCurrency(inssContribution)}</strong></li>
-                <li>Imposto de Renda: <strong>${formatCurrency(incomeTax)}</strong></li>
-                <li>Total de Impostos: <strong>${formatCurrency(totalTaxes)}</strong></li>
+                <li>Benefícios: <strong>${formatCurrency(benefits)}</strong></li>
+                <li>FGTS (8%): <strong>${formatCurrency(salary * 0.08)}</strong></li>
+                <li>INSS Patronal (20%): <strong>${formatCurrency(salary * 0.2)}</strong></li>
             </ul>
+            <p><strong>Valor total de Imposto: ${formatCurrency(inssContribution + salary * 0.2)}</strong></p>
         `;
 
-        // Mostra o container de resultados
         resultContainer.style.display = 'block';
         additionalInfoContainer.style.display = 'block';
 
-        // Rola suavemente para o resultado
-        resultContainer.scrollIntoView({ 
+        // Rolar a página para mostrar os resultados
+        const resultContainerElement = document.getElementById('resultContainer');
+        resultContainerElement.scrollIntoView({ 
             behavior: 'smooth', 
             block: 'start' 
         });
     });
-
-    function convertTimeToMinutes(time) {
-        const [hours, minutes] = time.split(':').map(Number);
-        return hours * 60 + minutes;
-    }
 });
