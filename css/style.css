@@ -353,3 +353,25 @@ body.light-theme .porcentometro-description {
 .dark-theme .form-control::placeholder {
     color: rgba(171, 171, 171, 0.7) !important;
 }
+
+
+Sim, o plano está correto. Você pode proceder com as seguintes mudanças:
+
+Troque este trecho existente:
+css
+Copiar código
+.porcentometro-card .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+Por este:
+
+css
+Copiar código
+.porcentometro-card .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinha todo o conteúdo ao topo */
+}
+

@@ -65,8 +65,8 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card border-0 shadow-sm porcentometro-card">
                     <div class="card-body p-4">
-                        <h3 class="card-title text-center mb-3">Porcentagem de um Número</h3>
-                        <p class="text-muted text-center mb-4 porcentometro-description">Calcule a porcentagem de um número específico.</p>
+                        <h3 class="card-title text-center mb-3">Porcentagem Simples</h3>
+                        <p class="text-muted text-center mb-4 porcentometro-description">Porcentagem de um número específico.</p>
                         <form id="percentageForm">
                             <div class="mb-3">
                                 <label for="baseNumber" class="form-label">Número Base</label>
@@ -85,6 +85,69 @@
                 </div>
             </div>
 
+            <!-- Juros Simples -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm porcentometro-card">
+                    <div class="card-body p-4">
+                        <h3 class="card-title text-center mb-3">Juros Simples</h3>
+                        <p class="text-muted text-center mb-4 porcentometro-description">Calcule o valor dos juros simples.</p>
+                        <form id="simpleInterestForm">
+                            <div class="mb-3">
+                                <label for="principalAmount" class="form-label">Valor Principal</label>
+                                <input type="number" class="form-control" id="principalAmount" placeholder="Digite o valor principal" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="interestRate" class="form-label">Taxa de Juros (%)</label>
+                                <input type="number" class="form-control" id="interestRate" placeholder="Digite a taxa de juros" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="timePeriod" class="form-label">Período (meses ou anos)</label>
+                                <input type="number" class="form-control" id="timePeriod" placeholder="Digite o período em anos" required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Calcular</button>
+                            </div>
+                            <div id="simpleInterestResult" class="mt-3 text-center"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            
+            
+            
+            <!-- Juros Compostos -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm porcentometro-card">
+                    <div class="card-body p-4">
+                        <h3 class="card-title text-center mb-3">Juros Compostos</h3>
+                        <p class="text-muted text-center mb-4 porcentometro-description">Calcule o valor dos juros compostos.</p>
+                        <form id="compoundInterestForm">
+                            <div class="mb-3">
+                                <label for="compoundPrincipal" class="form-label">Valor Principal</label>
+                                <input type="number" class="form-control" id="compoundPrincipal" placeholder="Digite o valor principal" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="compoundRate" class="form-label">Taxa de Juros Anual (%)</label>
+                                <input type="number" class="form-control" id="compoundRate" placeholder="Digite a taxa de juros anual" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="compoundTime" class="form-label">Período (anos)</label>
+                                <input type="number" class="form-control" id="compoundTime" placeholder="Digite o período em anos" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="compoundFrequency" class="form-label">Vezes Compostas por Ano</label>
+                                <input type="number" class="form-control" id="compoundFrequency" placeholder="Digite a frequência de composição" required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Calcular</button>
+                            </div>
+                            <div id="compoundInterestResult" class="mt-3 text-center"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
             <!-- Aumento/Diminuição de Porcentagem -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card border-0 shadow-sm porcentometro-card">
@@ -109,97 +172,13 @@
                 </div>
             </div>
 
-            <!-- Juros Simples -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card border-0 shadow-sm porcentometro-card">
-                    <div class="card-body p-4">
-                        <h3 class="card-title text-center mb-3">Juros Simples</h3>
-                        <p class="text-muted text-center mb-4 porcentometro-description">Calcule o valor dos juros simples.</p>
-                        <form id="simpleInterestForm">
-                            <div class="mb-3">
-                                <label for="principalAmount" class="form-label">Valor Principal</label>
-                                <input type="number" class="form-control" id="principalAmount" placeholder="Digite o valor principal" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="interestRate" class="form-label">Taxa de Juros (%)</label>
-                                <input type="number" class="form-control" id="interestRate" placeholder="Digite a taxa de juros" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="timePeriod" class="form-label">Período (anos)</label>
-                                <input type="number" class="form-control" id="timePeriod" placeholder="Digite o período em anos" required>
-                            </div>
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-primary">Calcular</button>
-                            </div>
-                            <div id="simpleInterestResult" class="mt-3 text-center"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Juros Compostos -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card border-0 shadow-sm porcentometro-card">
-                    <div class="card-body p-4">
-                        <h3 class="card-title text-center mb-3">Juros Compostos</h3>
-                        <p class="text-muted text-center mb-4 porcentometro-description">Calcule o valor dos juros compostos.</p>
-                        <form id="compoundInterestForm">
-                            <div class="mb-3">
-                                <label for="compoundPrincipal" class="form-label">Valor Principal</label>
-                                <input type="number" class="form-control" id="compoundPrincipal" placeholder="Digite o valor principal" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="compoundRate" class="form-label">Taxa de Juros (%)</label>
-                                <input type="number" class="form-control" id="compoundRate" placeholder="Digite a taxa de juros" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="compoundTime" class="form-label">Período (anos)</label>
-                                <input type="number" class="form-control" id="compoundTime" placeholder="Digite o período em anos" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="compoundFrequency" class="form-label">Vezes Compostas por Ano</label>
-                                <input type="number" class="form-control" id="compoundFrequency" placeholder="Digite a frequência" required>
-                            </div>
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-primary">Calcular</button>
-                            </div>
-                            <div id="compoundInterestResult" class="mt-3 text-center"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Juros Mensais -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card border-0 shadow-sm porcentometro-card">
-                    <div class="card-body p-4">
-                        <h3 class="card-title text-center mb-3">Juros Mensais</h3>
-                        <p class="text-muted text-center mb-4 porcentometro-description">Calcule os juros de um mês.</p>
-                        <form id="monthlyInterestForm">
-                            <div class="mb-3">
-                                <label for="monthlyPrincipal" class="form-label">Valor Principal</label>
-                                <input type="number" class="form-control" id="monthlyPrincipal" placeholder="Digite o valor principal" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="monthlyRate" class="form-label">Taxa de Juros Mensal (%)</label>
-                                <input type="number" class="form-control" id="monthlyRate" placeholder="Digite a taxa de juros mensal" required>
-                            </div>
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-primary">Calcular</button>
-                            </div>
-                            <div id="monthlyInterestResult" class="mt-3 text-center"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            
+           
 
             <!-- Desconto -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card border-0 shadow-sm porcentometro-card">
                     <div class="card-body p-4">
-                        <h3 class="card-title text-center mb-3">Calculadora de Desconto</h3>
+                        <h3 class="card-title text-center mb-3">Calculadora de desconto</h3>
                         <p class="text-muted text-center mb-4 porcentometro-description">Calcule o valor do desconto e o preço final.</p>
                         <form id="discountForm">
                             <div class="mb-3">
@@ -219,6 +198,208 @@
                 </div>
             </div>
 
+
+            <!-- Valor Futuro com Depósitos Regulares -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm porcentometro-card">
+                    <div class="card-body p-4">
+                        <h3 class="card-title text-center mb-3">Investimento Periódico</h3>
+                        <p class="text-muted text-center mb-4 porcentometro-description">Calcule o valor futuro com depósitos regulares.</p>
+                        <form id="futureValueForm">
+                            <div class="mb-3">
+                                <label for="initialInvestment" class="form-label">Valor Inicial (R$)</label>
+                                <input type="number" class="form-control" id="initialInvestment" placeholder="Digite o valor inicial" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="monthlyDeposit" class="form-label">Depósito Mensal (R$)</label>
+                                <input type="number" class="form-control" id="monthlyDeposit" placeholder="Digite o valor do depósito mensal" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="monthlyRate" class="form-label">Taxa de Juros Mensal (%)</label>
+                                <input type="number" class="form-control" id="monthlyRate" placeholder="Digite a taxa de juros mensal" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="investmentPeriod" class="form-label">Período (meses)</label>
+                                <input type="number" class="form-control" id="investmentPeriod" placeholder="Digite o período em meses" required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Calcular</button>
+                            </div>
+                            <div id="futureValueResult" class="mt-3 text-center"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- Margem de Lucro -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm porcentometro-card">
+                    <div class="card-body p-4">
+                        <h3 class="card-title text-center mb-3">Cálculo de Margem de Lucro</h3>
+                        <p class="text-muted text-center mb-4 porcentometro-description">Calcule o preço de venda com base no custo e na margem de lucro.</p>
+                        <form id="profitMarginForm">
+                            <div class="mb-3">
+                                <label for="productCost" class="form-label">Custo do Produto (R$)</label>
+                                <input type="number" class="form-control" id="productCost" placeholder="Digite o custo do produto" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="profitMargin" class="form-label">Margem de Lucro Desejada (%)</label>
+                                <input type="number" class="form-control" id="profitMargin" placeholder="Digite a margem de lucro (%)" required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Calcular</button>
+                            </div>
+                            <div id="profitMarginResult" class="mt-3 text-center"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Margem de Lucro Composta -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm porcentometro-card">
+                    <div class="card-body p-4">
+                        <h3 class="card-title text-center mb-3">Margem de Lucro Composta</h3>
+                        <p class="text-muted text-center mb-4 porcentometro-description">Calcule o preço de venda considerando margem de lucro, custos e valores adicionais.</p>
+                        <form id="compositeProfitMarginForm">
+                            <div class="mb-3">
+                                <label for="compositeProductCost" class="form-label">Custo do Produto (R$)</label>
+                                <input type="number" class="form-control" id="compositeProductCost" placeholder="Digite o custo do produto" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="compositeProfitMargin" class="form-label">Margem de Lucro Desejada (%)</label>
+                                <input type="number" class="form-control" id="compositeProfitMargin" placeholder="Digite a margem de lucro (%)" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="compositeCostMargin" class="form-label">Margem de Custos/Impostos (%) (Opcional)</label>
+                                <input type="number" class="form-control" id="compositeCostMargin" placeholder="Digite a margem de custos (%)">
+                            </div>
+                            <div class="mb-3">
+                                <label for="compositeAdditionalValue" class="form-label">Valor Bruto Adicional (R$) (Opcional)</label>
+                                <input type="number" class="form-control" id="compositeAdditionalValue" placeholder="Digite um valor adicional (R$)">
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Calcular</button>
+                            </div>
+                            <div id="compositeProfitMarginResult" class="mt-3 text-center"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Valorização/Desvalorização Percentual -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm porcentometro-card">
+                    <div class="card-body p-4">
+                        <h3 class="card-title text-center mb-3">Valorização/Desvalorização Percentual</h3>
+                        <p class="text-muted text-center mb-4 porcentometro-description">Calcule a valorização ou desvalorização percentual de um bem ao longo do tempo.</p>
+                        <form id="valueChangeForm">
+                            <div class="mb-3">
+                                <label for="originalValueChange" class="form-label">Valor Original (R$)</label>
+                                <input type="number" class="form-control" id="originalValueChange" placeholder="Digite o valor original" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="currentValueChange" class="form-label">Valor Atual (R$)</label>
+                                <input type="number" class="form-control" id="currentValueChange" placeholder="Digite o valor atual" required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Calcular</button>
+                            </div>
+                            <div id="valueChangeResult" class="mt-3 text-center"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conversão de Taxa Anual para Mensal -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm porcentometro-card">
+                    <div class="card-body p-4">
+                        <h3 class="card-title text-center mb-3">Conversão de Taxa</h3>
+                        <p class="text-muted text-center mb-4 porcentometro-description">Converta taxas anuais para mensais e vice-versa.</p>
+                        <form id="rateConversionForm">
+                            <div class="mb-3">
+                                <label for="annualRate" class="form-label">Taxa Anual ou Mensal(%)</label>
+                                <input type="number" class="form-control" id="annualRate" placeholder="Digite a taxa" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="conversionPeriod" class="form-label">Período</label>
+                                <select class="form-control" id="conversionPeriod">
+                                    <option value="mensal">Converter para Mensal</option>
+                                    <option value="anual">Converter para Anual</option>
+                                </select>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Calcular</button>
+                            </div>
+                            <div id="rateConversionResult" class="mt-3 text-center"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Calculadora de Divisão Proporcional -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm porcentometro-card">
+                    <div class="card-body p-4">
+                        <h3 class="card-title text-center mb-3">Calculadora de Divisão Proporcional</h3>
+                        <p class="text-muted text-center mb-4 porcentometro-description">
+                            Divida um valor total proporcionalmente com base em pesos definidos.
+                        </p>
+                        <form id="proportionalDivisionForm">
+                            <div class="mb-3">
+                                <label for="totalValue" class="form-label">Valor Total (R$)</label>
+                                <input type="number" class="form-control" id="totalValue" placeholder="Digite o valor total" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="weights" class="form-label">Pesos Proporcionais (separados por vírgulas)</label>
+                                <input type="text" class="form-control" id="weights" placeholder="Exemplo: 2, 3, 5" required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Calcular</button>
+                            </div>
+                            <div id="proportionalDivisionResult" class="mt-3"></div> <!-- Div para exibir o resultado -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- Cálculo de ROI -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm porcentometro-card">
+                    <div class="card-body p-4">
+                        <h3 class="card-title text-center mb-3">Calculadora de ROI</h3>
+                        <p class="text-muted text-center mb-4 porcentometro-description">
+                            Calcule o Retorno sobre Investimento (ROI) com base nos ganhos e custos.
+                        </p>
+                        <form id="roiForm">
+                            <div class="mb-3">
+                                <label for="gain" class="form-label">Ganhos (R$)</label>
+                                <input type="number" class="form-control" id="gain" placeholder="Digite o valor dos ganhos" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cost" class="form-label">Custos (R$)</label>
+                                <input type="number" class="form-control" id="cost" placeholder="Digite o valor dos custos" required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Calcular</button>
+                            </div>
+                        </form>
+                        <div id="roiResult" class="mt-3 text-center"></div> <!-- Div para exibir o resultado -->
+                    </div>
+                </div>
+            </div>
+
+
+
+            
 
 
     <!-- Rodapé -->

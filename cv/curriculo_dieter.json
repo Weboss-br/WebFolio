@@ -1,26 +1,47 @@
 {
     "nome_completo": "Dieter Heiss",
-    "titulo_profissional": "Especialista em Suporte Técnico e Desenvolvedor Web",
-    "resumo_profissional": "Profissional com sólida experiência em Suporte Técnico, Logística e Desenvolvimento Web, especializado em HTML, CSS, WordPress e integração de sistemas. Apaixonado por criar soluções inovadoras e melhorar processos com tecnologias modernas.",
+    "titulo_profissional": "Profissional em Transição de Carreira para Tecnologia",
+    "resumo_profissional": "Profissional com experiência em diversas áreas, incluindo Publicidade, Suporte Técnico e Desenvolvimento Web. Atualmente, em transição de carreira, buscando expandir habilidades em tecnologia e inovação, com foco em soluções criativas e impacto positivo.",
     "contato": {
         "email": "weboss@gmail.com",
-        "linkedin": "https://www.linkedin.com/in/dieter-heiss-523707130/",
-        "github": "https://github.com/Weboss-br",
+        "linkedin": "https://www.linkedin.com/in/dieterheiss",
+        "github": "https://github.com/seuusuario",
         "telefone": "+55 47 99915-1995",
-        "whatsapp": "(47) 99915-1995"
+        "curriculo_link": "https://weboss.com.br/cv/CurriculoDieter2024.pdf"
     },
     "educacao": [
         {
-            "instituicao": "UNIASSELVI – Centro Universitário Leonardo Da Vinci",
-            "curso": "Superior Completo em Comunicação Social com Habilitação em Publicidade e Propaganda",
+            "instituicao": "UNIASSELVI",
+            "curso": "Publicidade e Propaganda",
             "ano_conclusao": 2005
         },
         {
-            "instituicao": "Univali - Balneário Camboriú",
+            "instituicao": "Univali",
             "curso": "Pós-Graduação em Fotografia",
             "ano_conclusao": 2009
+        },
+        {
+            "instituicao": "Blusoft - ACATE",
+            "curso": "Desenvolvimento Full Stack com Python",
+            "ano_conclusao": 2022
         }
     ],
+    "interacoes_fixas": {
+        "introducao": "Olá! Sou o assistente virtual do Dieter. Estou aqui para responder suas perguntas sobre sua experiência, habilidades e projetos. Pergunte o que quiser e conheça melhor sua trajetória!",
+        "avisos": "Ah, e só para avisar, nossa conversa pode ser registrada. Mas não se preocupe, sou ótimo em guardar segredos! 😉"
+    },
+    "respostas_variadas": {
+        "cumprimento": [
+            "Olá! Tudo bem? Sou o assistente virtual do Dieter, pronto para suas perguntas sobre sua trajetória profissional e projetos!",
+            "Oi! Está curioso sobre a experiência e os projetos do Dieter? Estou aqui para ajudar!", 
+            "Bem-vindo! Pergunte o que quiser sobre a carreira e habilidades do Dieter. Vamos explorar juntos!"
+        ],
+        "humor_wifi": [
+            "Essa é uma pergunta tão difícil que até meu Wi-Fi caiu!",
+            "Deixa eu reiniciar minha lógica aqui, porque essa foi forte!",
+            "Essa pegou pesado, mas eu adoro um desafio. Vamos resolver!"
+        ]
+    },
     "experiencia_profissional": [
         {
             "empresa": "Blutrade Imp.",
@@ -29,12 +50,7 @@
             "responsabilidades": [
                 "Análise e otimização do sistema de gestão de estoque, garantindo maior eficiência operacional.",
                 "Organização física e analítica dos produtos, incluindo planejamento estratégico.",
-                "Implementação de novas funcionalidades e melhores práticas no setor logístico."
-            ],
-            "tecnologias_utilizadas": [
-                "Excel",
-                "SAP B1",
-                "Salesforce"
+                "Coordenação do recebimento e controle de containers, com foco na organização física e no gerenciamento analítico de mercadorias."
             ]
         },
         {
@@ -42,95 +58,66 @@
             "cargo": "Suporte TI",
             "periodo": "Setembro/2023 – Agosto/2024",
             "responsabilidades": [
-                "Gerenciamento da infraestrutura de TI, incluindo manutenção de computadores e softwares.",
-                "Configuração e suporte a sistemas como SAP B1 e Salesforce.",
-                "Atualizações em páginas web, configuração de DNS e criação de formulários no WordPress."
+                "Gerenciamento da infraestrutura de TI da empresa, abrangendo manutenção de computadores e softwares.",
+                "Suporte técnico a sistemas como SAP B1 e Salesforce, auxiliando no uso e manutenção dessas plataformas.",
+                "Atualizações em páginas web, incluindo configurações de DNS e criação de formulários no WordPress."
+            ]
+        },
+        {
+            "empresa": "Karin Grace Artigos Artesanais LTDA",
+            "cargo": "Administração e Comunicação",
+            "periodo": "Fevereiro/2009 – Maio/2024",
+            "responsabilidades": [
+                "Criação de catálogos e folders, além do gerenciamento de projetos especiais.",
+                "Administração do site da empresa e processamento de pedidos.",
+                "Gestão financeira, incluindo emissão de notas fiscais e desenvolvimento de novos produtos."
             ]
         },
         {
             "empresa": "Maiberg Consultoria e Tecnologia LTDA",
-            "cargo": "Sócio (Desenvolvimento e Suporte Técnico IOT)",
+            "cargo": "Sócio (Desenvolvimento e Suporte Técnico IoT)",
             "periodo": "Abril/2020 – Novembro/2022",
             "responsabilidades": [
                 "Desenvolvimento no sistema Wegnology para monitoramento de máquinas.",
-                "Uso de JavaScript e MongoDB em plataforma Losant IOT.",
-                "Suporte técnico e instalação do sistema em postos de combustível."
+                "Uso de JavaScript e MongoDB em plataformas baseadas no Losant IoT.",
+                "Instalação e suporte técnico do sistema em postos de combustível."
             ]
         }
     ],
-    "habilidades_tecnicas": {
-        "linguagens_programacao": [
-            "JavaScript",
-            "Python",
-            "HTML",
-            "CSS"
-        ],
-        "frameworks_bibliotecas": [
-            "Bootstrap",
-            "Django",
-            "FastAPI"
-        ],
-        "ferramentas_desenvolvimento": [
-            "Git",
-            "Docker",
-            "VS Code"
-        ],
-        "banco_de_dados": [
-            "PostgreSQL",
-            "MongoDB"
-        ],
-        "outros": [
-            "Metodologias Ágeis",
-            "Design Responsivo",
-            "Integração de APIs"
-        ]
-    },
-    "projetos_destacados": [
+    "projetos": [
         {
             "nome": "Salariômetro",
-            "descricao": "Calculadora financeira inteligente para simplificar cálculos salariais e de impostos, focada na transparência financeira para os usuários.",
-            "tecnologias": [
-                "HTML",
-                "CSS",
-                "JavaScript"
-            ],
-            "status": "Concluído"
+            "descricao": "Uma calculadora financeira inteligente para simplificar cálculos salariais e de impostos, com design responsivo e interfaces intuitivas. Você pode conferir mais detalhes acessando [aqui](https://weboss.com.br/projetos-pessoais/salariometro/salariometro.html)."
+        },
+        {
+            "nome": "Porcentômetro",
+            "descricao": "Uma calculadora de porcentagens versátil para cálculos rápidos e precisos de aumentos, descontos e variações percentuais. Para experimentar, acesse [aqui](https://weboss.com.br/projetos-pessoais/porcentometro/porcentometro.html)."
         },
         {
             "nome": "SceneSync",
-            "descricao": "Aplicação para organização e sincronização de cenas criativas, ideal para roteiristas e profissionais audiovisuais.",
-            "tecnologias": [
-                "HTML",
-                "CSS",
-                "JavaScript"
-            ],
-            "status": "Em desenvolvimento (10% concluído)"
-        }
-    ],
-    "certificacoes": [
-        {
-            "nome": "Desenvolvedor Python +Devs FullStack (480 horas)",
-            "instituicao": "BLUSOFT - ACATE",
-            "ano": 2022
-        }
-    ],
-    "idiomas": [
-        {
-            "idioma": "Português",
-            "nivel": "Nativo"
+            "descricao": "Um gerenciador de cenas criativas para organizar e sincronizar conteúdos audiovisuais, ideal para roteiristas e produtores. Saiba mais [aqui](https://weboss.com.br/projetos-pessoais/scenesync/scenesync.html)."
         },
         {
-            "idioma": "Inglês",
-            "nivel": "Fluente"
+            "nome": "Projeto de Controle de Logística - Versão Inicial",
+            "descricao": "Um projeto planejado para desenvolver um sistema integrado e automatizado para controle da logística, com foco em organização, automação de processos e apoio à tomada de decisão. Este projeto ainda não foi iniciado, mas está no roadmap de desenvolvimento do Dieter."
+        },
+        {
+            "nome": "GameZ",
+            "descricao": "Uma ideia em desenvolvimento para criar uma plataforma de gerenciamento de jogos, onde usuários poderão catalogar seus jogos, marcar quais possuem, atribuir pontuações, adicionar comentários e ver thumbs dos jogos. O projeto ainda não foi iniciado, mas promete integração com a API da Steam e uso da metodologia Ágil."
         }
     ],
-    "interesses_profissionais": [
-        "Desenvolvimento Web",
-        "Inteligência Artificial",
-        "Gestão de Projetos",
-        "Inovação Tecnológica"
-    ],
-    "informacoes_pessoais": {
-        "descricao": "Pai de três meninas, casado, com experiência internacional após morar na Inglaterra por 1 ano e 6 meses. Ex-escoteiro por 10 anos, desenvolvendo habilidades de liderança e trabalho em equipe."
+    "habilidades_tecnicas": {
+        "linguagens_programacao": ["Python", "JavaScript"],
+        "desenvolvimento_web": ["HTML", "CSS", "WordPress"],
+        "ferramentas_design": ["Edição de fotos", "Pequenas edições de vídeo", "Diagramação de textos"],
+        "gestao_projetos": ["Metodologias Ágeis"],
+        "plataformas": [
+            "Já trabalhou com SAP B1, Salesforce, Losant IoT, Wegnology, WooCommerce, Magento (há muito tempo), OpenCart, Tray, Olist, MercadoLivre, dentre outros. Ele sabe como utilizar essas ferramentas."
+        ],
+        "idiomas": ["Inglês fluente"],
+        "desenvolvimento_web": [
+            "Experiência com HTML, CSS e WordPress. Ele sabe criar interfaces e soluções web intuitivas e funcionais, além de já ter desenvolvido alguns e-commerces, como o Karingrace.com.br e o bonspresentes.com.br (em breve no ar)."
+        ],
+        "nota_importante": "Dieter possui conhecimentos em programação no nível júnior, mas compensa com criatividade e a habilidade de encontrar soluções rápidas usando ferramentas como Stack Overflow, GPTs e boa documentação."
     }
 }

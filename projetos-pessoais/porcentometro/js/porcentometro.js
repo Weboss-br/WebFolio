@@ -54,59 +54,76 @@ document.getElementById('simpleInterestForm')?.addEventListener('submit', functi
 });
 
 // Juros Compostos
-document.getElementById('compoundInterestForm')?.addEventListener('submit', function(e) {
+document.getElementById('compoundInterestForm').addEventListener('submit', function (e) {
     e.preventDefault();
+
+    // Capturar os valores do formulário
     const principal = parseFloat(document.getElementById('compoundPrincipal').value);
-    const rate = parseFloat(document.getElementById('compoundRate').value);
-    const time = parseFloat(document.getElementById('compoundTime').value);
+    const rate = parseFloat(document.getElementById('compoundRate').value) / 100; // Converter taxa para decimal
+    const time = parseFloat(document.getElementById('compoundTime').value); // Tempo em anos
+    const frequency = parseInt(document.getElementById('compoundFrequency').value, 10); // Frequência de composição por ano
+
     const resultElement = document.getElementById('compoundInterestResult');
-    
-    if (isNaN(principal) || isNaN(rate) || isNaN(time)) {
+
+    // Validação de entradas
+    if (isNaN(principal) || isNaN(rate) || isNaN(time) || isNaN(frequency) || principal <= 0 || rate <= 0 || time <= 0 || frequency <= 0) {
         resultElement.textContent = 'Por favor, insira valores válidos.';
         return;
     }
-    
-    const total = principal * Math.pow((1 + rate/100), time);
-    const interest = total - principal;
-    
-    resultElement.textContent = `Juros: R$ ${interest.toFixed(2)} | Total: R$ ${total.toFixed(2)}`;
+
+    // Cálculo de juros compostos
+    const totalAmount = principal * Math.pow((1 + rate / frequency), frequency * time);
+    const totalInterest = totalAmount - principal;
+
+    // Exibir resultados no mini relatório
+    resultElement.innerHTML = `
+        <h4>Relatório do Cálculo</h4>
+        <p><strong>Valor Inicial:</strong> R$ ${principal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+        <p><strong>Ganho em Juros:</strong> R$ ${totalInterest.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+        <p><strong>Valor Final Total:</strong> R$ ${totalAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+    `;
 });
 
-// Juros Mensais
-document.getElementById('monthlyInterestForm')?.addEventListener('submit', function(e) {
+
+// Valor Futuro com Depósitos Regulares
+document.getElementById('futureValueForm').addEventListener('submit', function (e) {
     e.preventDefault();
-    const principal = parseFloat(document.getElementById('monthlyPrincipal').value);
-    const rate = parseFloat(document.getElementById('monthlyRate').value);
-    const resultElement = document.getElementById('monthlyInterestResult');
-    
-    if (isNaN(principal) || isNaN(rate)) {
+
+    // Capturar valores do formulário
+    const initialInvestment = parseFloat(document.getElementById('initialInvestment').value);
+    const monthlyDeposit = parseFloat(document.getElementById('monthlyDeposit').value);
+    const monthlyRate = parseFloat(document.getElementById('monthlyRate').value) / 100; // Converter para decimal
+    const months = parseInt(document.getElementById('investmentPeriod').value, 10);
+
+    const resultElement = document.getElementById('futureValueResult');
+
+    // Validar entradas
+    if (isNaN(initialInvestment) || isNaN(monthlyDeposit) || isNaN(monthlyRate) || isNaN(months) || initialInvestment < 0 || monthlyDeposit < 0 || monthlyRate < 0 || months <= 0) {
         resultElement.textContent = 'Por favor, insira valores válidos.';
         return;
     }
-    
-    const interest = (principal * rate) / 100;
-    const total = principal + interest;
-    
-    resultElement.textContent = `Juros Mensais: R$ ${interest.toFixed(2)} | Total: R$ ${total.toFixed(2)}`;
+
+    // Cálculo do valor futuro
+    let futureValue = initialInvestment * Math.pow((1 + monthlyRate), months); // Crescimento do valor inicial
+    let totalDeposits = initialInvestment; // Valor inicial já conta como depósito total
+    for (let i = 1; i <= months; i++) {
+        totalDeposits += monthlyDeposit; // Acumular depósitos
+        futureValue += monthlyDeposit * Math.pow((1 + monthlyRate), (months - i)); // Somar os depósitos mensais com crescimento
+    }
+
+    const totalGains = futureValue - totalDeposits; // Ganho total em juros
+
+    // Exibir resultados no mini relatório
+    resultElement.innerHTML = `
+        <h4>Relatório do Investimento</h4>
+        <p><strong>Valor Inicial:</strong> R$ ${initialInvestment.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+        <p><strong>Depósitos Totais:</strong> R$ ${(totalDeposits - initialInvestment).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+        <p><strong>Ganho em Juros:</strong> R$ ${totalGains.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+        <p><strong>Valor Futuro Total:</strong> R$ ${futureValue.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+    `;
 });
 
-// Juros Anuais
-document.getElementById('yearlyInterestForm')?.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const principal = parseFloat(document.getElementById('yearlyPrincipal').value);
-    const rate = parseFloat(document.getElementById('yearlyRate').value);
-    const resultElement = document.getElementById('yearlyInterestResult');
-    
-    if (isNaN(principal) || isNaN(rate)) {
-        resultElement.textContent = 'Por favor, insira valores válidos.';
-        return;
-    }
-    
-    const interest = (principal * rate) / 100;
-    const total = principal + interest;
-    
-    resultElement.textContent = `Juros Anuais: R$ ${interest.toFixed(2)} | Total: R$ ${total.toFixed(2)}`;
-});
+
 
 // Desconto
 document.getElementById('discountForm')?.addEventListener('submit', function(e) {
@@ -126,39 +143,217 @@ document.getElementById('discountForm')?.addEventListener('submit', function(e) 
     resultElement.textContent = `Desconto: R$ ${discountAmount.toFixed(2)} | Preço Final: R$ ${finalPrice.toFixed(2)}`;
 });
 
-// Imposto
-document.getElementById('taxForm')?.addEventListener('submit', function(e) {
+// Cálculo de Margem de Lucro
+document.getElementById('profitMarginForm').addEventListener('submit', function (e) {
     e.preventDefault();
-    const priceBeforeTax = parseFloat(document.getElementById('priceBeforeTax').value);
-    const taxRate = parseFloat(document.getElementById('taxRate').value);
-    const resultElement = document.getElementById('taxResult');
-    
-    if (isNaN(priceBeforeTax) || isNaN(taxRate)) {
+
+    // Capturar valores do formulário
+    const productCost = parseFloat(document.getElementById('productCost').value);
+    const profitMargin = parseFloat(document.getElementById('profitMargin').value) / 100; // Converter para decimal
+
+    const resultElement = document.getElementById('profitMarginResult');
+
+    // Validar entradas
+    if (isNaN(productCost) || isNaN(profitMargin) || productCost <= 0 || profitMargin < 0) {
         resultElement.textContent = 'Por favor, insira valores válidos.';
         return;
     }
-    
-    const taxAmount = (priceBeforeTax * taxRate) / 100;
-    const totalPrice = priceBeforeTax + taxAmount;
-    
-    resultElement.textContent = `Imposto: R$ ${taxAmount.toFixed(2)} | Preço Total: R$ ${totalPrice.toFixed(2)}`;
+
+    // Cálculo do preço de venda
+    const sellingPrice = productCost * (1 + profitMargin);
+
+    // Exibir resultado
+    resultElement.innerHTML = `
+        <h4>Resultado</h4>
+        <p><strong>Preço de Venda:</strong> R$ ${sellingPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+        <p><strong>Custo do Produto:</strong> R$ ${productCost.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+        <p><strong>Margem de Lucro:</strong> ${(profitMargin * 100).toFixed(2)}%</p>
+    `;
 });
 
-// Função para calcular resultado de porcentagem
-document.getElementById('percentageResultForm').addEventListener('submit', function(e) {
+
+// Margem de Lucro Composta
+document.getElementById('compositeProfitMarginForm').addEventListener('submit', function (e) {
     e.preventDefault();
-    const valor1 = parseFloat(document.getElementById('valor1').value);
-    const valor2 = parseFloat(document.getElementById('valor2').value);
-    
-    if (isNaN(valor1) || isNaN(valor2)) {
-        document.getElementById('percentageResultCalc').innerHTML = 'Por favor, insira valores válidos.';
+
+    // Capturar valores do formulário
+    const productCost = parseFloat(document.getElementById('compositeProductCost').value);
+    const profitMargin = parseFloat(document.getElementById('compositeProfitMargin').value) / 100; // Converter para decimal
+    const costMargin = parseFloat(document.getElementById('compositeCostMargin').value) / 100 || 0; // Converter para decimal ou usar 0
+    const additionalValue = parseFloat(document.getElementById('compositeAdditionalValue').value) || 0; // Usar 0 se estiver vazio
+
+    const resultElement = document.getElementById('compositeProfitMarginResult');
+
+    // Validar entradas
+    if (isNaN(productCost) || isNaN(profitMargin) || productCost <= 0 || profitMargin < 0 || costMargin < 0 || additionalValue < 0) {
+        resultElement.textContent = 'Por favor, insira valores válidos.';
         return;
     }
 
-    // Calcula a porcentagem que valor1 representa em relação a valor2
-    const resultado = ((valor1 / valor2) * 100).toFixed(2);
-    
-    document.getElementById('percentageResultCalc').innerHTML = `
-        ${valor1} representa ${resultado}% de ${valor2}
+    // Cálculo do preço de venda
+    const adjustedCost = productCost * (1 + costMargin); // Custo ajustado com margem de custos/impostos
+    const sellingPrice = adjustedCost * (1 + profitMargin) + additionalValue; // Preço com margem de lucro e valor adicional
+
+    // Exibir resultado
+    resultElement.innerHTML = `
+        <h4>Resultado</h4>
+        <p><strong>Custo do Produto:</strong> R$ ${productCost.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+        <p><strong>Margem de Lucro:</strong> ${(profitMargin * 100).toFixed(2)}%</p>
+        <p><strong>Margem de Custos/Impostos:</strong> ${(costMargin * 100).toFixed(2)}%</p>
+        <p><strong>Valor Bruto Adicional:</strong> R$ ${additionalValue.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+         <p><strong>Preço de Venda:</strong> R$ ${sellingPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+    `;
+});
+
+// Cálculo de Valorização/Desvalorização Percentual
+document.getElementById('valueChangeForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Capturar valores do formulário
+    const originalValue = parseFloat(document.getElementById('originalValueChange').value);
+    const currentValue = parseFloat(document.getElementById('currentValueChange').value);
+
+    const resultElement = document.getElementById('valueChangeResult');
+
+    // Validar entradas
+    if (isNaN(originalValue) || isNaN(currentValue) || originalValue <= 0 || currentValue < 0) {
+        resultElement.textContent = 'Por favor, insira valores válidos.';
+        return;
+    }
+
+    // Determinar tipo de variação
+    let changeType, percentageChange;
+
+    if (currentValue > originalValue) {
+        changeType = 'Valorização';
+        percentageChange = ((currentValue - originalValue) / originalValue) * 100;
+    } else if (currentValue < originalValue) {
+        changeType = 'Desvalorização';
+        percentageChange = ((originalValue - currentValue) / originalValue) * 100;
+    } else {
+        changeType = 'Nenhuma alteração';
+        percentageChange = 0;
+    }
+
+    // Exibir resultado
+    resultElement.innerHTML = `
+        <h4>Resultado</h4>
+        <p><strong>Valor Original:</strong> R$ ${originalValue.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+        <p><strong>Valor Atual:</strong> R$ ${currentValue.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+        <p><strong>${changeType}:</strong> ${percentageChange.toFixed(2)}%</p>
+    `;
+});
+
+// Conversão de Taxa Anual para Mensal (e vice-versa)
+document.getElementById('rateConversionForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Captura os valores do formulário
+    const annualRate = parseFloat(document.getElementById('annualRate').value);
+    const conversionType = document.getElementById('conversionPeriod').value; // 'mensal' ou 'anual'
+    const resultElement = document.getElementById('rateConversionResult');
+
+    // Valida as entradas
+    if (isNaN(annualRate) || annualRate <= 0) {
+        resultElement.textContent = 'Por favor, insira uma taxa anual válida.';
+        return;
+    }
+
+    let convertedRate;
+    if (conversionType === 'mensal') {
+        // Converter de Anual para Mensal
+        convertedRate = (Math.pow(1 + annualRate / 100, 1 / 12) - 1) * 100;
+        resultElement.innerHTML = `
+            <h4>Resultado</h4>
+            <p><strong>Taxa Anual:</strong> ${annualRate.toFixed(2)}%</p>
+            <p><strong>Taxa Mensal Equivalente:</strong> ${convertedRate.toFixed(4)}%</p>
+        `;
+    } else if (conversionType === 'anual') {
+        // Converter de Mensal para Anual
+        convertedRate = (Math.pow(1 + annualRate / 100, 12) - 1) * 100;
+        resultElement.innerHTML = `
+            <h4>Resultado</h4>
+            <p><strong>Taxa Mensal:</strong> ${annualRate.toFixed(2)}%</p>
+            <p><strong>Taxa Anual Equivalente:</strong> ${convertedRate.toFixed(2)}%</p>
+        `;
+    }
+});
+
+
+//Calculadora de Divisão Proporcional
+document.getElementById('proportionalDivisionForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Capturar os valores do formulário
+    const totalValue = parseFloat(document.getElementById('totalValue').value);
+    const rawWeights = document.getElementById('weights').value;
+
+    const resultElement = document.getElementById('proportionalDivisionResult');
+
+    // Validar entradas
+    if (isNaN(totalValue) || totalValue <= 0 || !rawWeights.trim()) {
+        resultElement.innerHTML = '<p class="text-danger">Por favor, insira um valor total válido e pesos proporcionais.</p>';
+        return;
+    }
+
+    // Processar os pesos
+    const weights = rawWeights
+        .split(',')
+        .map(weight => parseFloat(weight.trim()))
+        .filter(weight => !isNaN(weight) && weight > 0);
+
+    if (weights.length === 0) {
+        resultElement.innerHTML = '<p class="text-danger">Por favor, insira pesos proporcionais válidos.</p>';
+        return;
+    }
+
+    // Calcular o total dos pesos
+    const totalWeights = weights.reduce((sum, weight) => sum + weight, 0);
+
+    // Calcular as divisões proporcionais
+    const results = weights.map(weight => (weight / totalWeights) * totalValue);
+
+    // Gerar o relatório com estilo padrão
+    let resultHTML = `
+        <h4 class="text-light">Resultado</h4> <!-- Título do resultado em branco -->
+        <p><strong>Valor Total:</strong> R$ ${totalValue.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+        <p><strong>Divisão Proporcional:</strong></p>
+        <ul class="list-unstyled">
+    `;
+    results.forEach((value, index) => {
+        resultHTML += `<li><strong>Parte ${index + 1}:</strong> R$ ${value.toFixed(2)}</li>`;
+    });
+    resultHTML += '</ul>';
+
+    // Exibir o resultado
+    resultElement.innerHTML = resultHTML;
+});
+
+
+
+// Calculadora de ROI
+document.getElementById('roiForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Capturar os valores do formulário
+    const gain = parseFloat(document.getElementById('gain').value);
+    const cost = parseFloat(document.getElementById('cost').value);
+    const resultElement = document.getElementById('roiResult');
+
+    // Validar entradas
+    if (isNaN(gain) || gain <= 0 || isNaN(cost) || cost <= 0) {
+        resultElement.innerHTML = '<p class="text-danger">Por favor, insira valores válidos para ganhos e custos.</p>';
+        return;
+    }
+
+    // Calcular o ROI
+    const roi = ((gain - cost) / cost) * 100;
+
+    // Gerar o resultado
+    resultElement.innerHTML = `
+        <h4 class="text-light">Resultado</h4> <!-- Título do resultado em branco -->
+        <p><strong>Ganhos:</strong> R$ ${gain.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+        <p><strong>Custos:</strong> R$ ${cost.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+        <p><strong>ROI:</strong> ${roi.toFixed(2)}%</p>
     `;
 });
