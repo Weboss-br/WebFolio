@@ -1,0 +1,55 @@
+/* Estilos personalizados para o OptiTask */
+.card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-tabs .nav-link {
+    color: #6c757d;
+}
+
+.nav-tabs .nav-link.active {
+    color: #ffffff;  /* Branco para dark mode */
+    background-color: #0a1423;  /* Azul escuro especificado */
+    border-color: rgba(10, 20, 35, 0.3);  /* Contorno com alpha 30% */
+    font-weight: 500;
+}
+
+.table th {
+    background-color: #f8f9fa;
+}
+
+/* Animações para os botões */
+.btn {
+    transition: transform 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Estilo para os ícones nos botões */
+.btn i {
+    width: 20px;
+    text-align: center;
+}
+
+/* Estilos para modais no tema dark */
+.modal-content.bg-dark {
+    border: 1px solid #2c3034;
+}
+
+.modal-content.bg-dark .form-control:focus {
+    background-color: #2c3034;
+    border-color: #0d6efd;
+    color: white;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.modal-content.bg-dark .form-control::placeholder {
+    color: #6c757d;
+}
+
+/* Ajuste do botão de fechar no tema dark */
+.btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}

@@ -6,6 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     ultimoResultadoContainer.classList.add('mt-4', 'text-center');
     numerosContainer.parentNode.insertBefore(ultimoResultadoContainer, numerosContainer.nextSibling);
 
+    // Botão de download
+    const btnDownloadResultado = document.createElement('button');
+    btnDownloadResultado.classList.add('btn', 'btn-secondary', 'mt-3');
+    btnDownloadResultado.textContent = 'Baixar Resultado';
+    btnDownloadResultado.style.display = 'none';
+    ultimoResultadoContainer.appendChild(btnDownloadResultado);
+
     // Buscar último resultado da Mega-Sena
     fetch('https://loteriascaixa-api.herokuapp.com/api/megasena/latest')
         .then(response => response.json())
@@ -22,7 +29,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>Valor Estimado Próximo Concurso: R$ ${data.valorEstimadoProximoConcurso.toLocaleString('pt-BR')}</p>
                 <p>Ganhadores 6 acertos: ${data.premiacoes[0].ganhadores}</p>
             `;
-            ultimoResultadoContainer.innerHTML = resultadoHTML;
+            ultimoResultadoContainer.innerHTML = resultadoHTML + ultimoResultadoContainer.innerHTML;
+
+            // Ativar botão de download
+            btnDownloadResultado.style.display = 'inline-block';
+            btnDownloadResultado.addEventListener('click', () => {
+                const dadosParaDownload = {
+                    concurso: data.concurso,
+                    data: data.data,
+                    dezenas: data.dezenas,
+                    valorEstimadoProximoConcurso: data.valorEstimadoProximoConcurso,
+                    ganhadores: data.premiacoes[0].ganhadores
+                };
+
+                const blob = new Blob([JSON.stringify(dadosParaDownload, null, 2)], {type: 'application/json'});
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = `resultado_megasena_concurso_${data.concurso}.json`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+            });
         })
         .catch(error => {
             ultimoResultadoContainer.innerHTML = `<p class="text-danger">Erro ao carregar resultado: ${error.message}</p>`;
@@ -47,5 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
             badges[index].classList.remove('bg-secondary');
             badges[index].classList.add('bg-success');
         });
+
+        // Rolar suavemente para o próximo container
+        setTimeout(() => {
+            ultimoResultadoContainer.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'nearest',
+                inline: 'nearest'
+            });
+        }, 200);
     });
 });
